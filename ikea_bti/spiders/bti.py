@@ -2,13 +2,13 @@ from scrapy.spiders import SitemapSpider
 
 from ikea_bti.items import IkeaBtiItem
 
+
 class BtiSpider(SitemapSpider):
     name = "bti"
     sitemap_urls = ['http://www.ikea.com/sitemap.xml']
     sitemap_follow = ['/sitemap/zh_CN/']
     sitemap_rules = [
-        # ('/sitemap/zh_CN/', '_parse_sitemap'),
-        (r'/cn/zh/.*/products/', 'parse_product_page'),
+        (r'.*/products/', 'parse_product_page'),
     ]
 
     def parse_product_page(self, response):

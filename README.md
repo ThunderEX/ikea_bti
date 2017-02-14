@@ -1,12 +1,21 @@
 # TL;DR
-a scrapy project to crawl ikea chinese site for BTI products.
+a scrapy project to crawl ikea official site for BTI products.
 
-file *jsonline2md.py* is used to convert results from json line to markdown.
 # BTI
 means "breath-taking item". They are products ridiculous cheaper in same category.
 
 BTI products has a striking yellow price tag in market and website. Click on any picture below to check a tag on website. 
-# Result
+
+# Usage
+- Make sure you have scrapy installed
+- just run start.py
+    - script will use your system deault locale, or you can manually assign locale by: ```python start.py -l en-US```
+    - result will show in generated res.md
+- manually:
+    - run scrapy in ikea_bti directory
+    - file *jsonline2md.py* is used to convert results from json line to markdown.
+
+# Result in Chinese (zh_CN)
 name | type | price | image
 --- | --- | --- | ---
 阿德 | 椅子, 红色, 白色 | ¥ 59.00 | [![alt text](pic/a-de-yi-zi-hong-se__0177535_PE330478_S4.JPG)](http://www.ikea.com/cn/zh/catalog/products/60219185/)
