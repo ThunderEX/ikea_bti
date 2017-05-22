@@ -14,8 +14,8 @@ def process():
     f_out = open(r'res.md', 'w', encoding='utf-8')
     f_in = open(path_in, encoding='utf-8')
 
-    f_out.write('''name | type | price | image
---- | --- | --- | ---
+    f_out.write('''name | type | price | family_price | image
+--- | --- | --- | --- | ---
 ''')
 
     for line in f_in:
@@ -24,6 +24,7 @@ def process():
             d['name'],
             d['type'],
             d['package_price'],
+            d['family_price'],
             img_with_link % (d['image_urls'][0].split('/')[-1], d['url'])
             ]))
         f_out.write('\n')
