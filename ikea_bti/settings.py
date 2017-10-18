@@ -94,7 +94,9 @@ FEED_FORMAT = 'jsonlines'
 FEED_URI = 'res/%(name)s_%(time)s.json'
 FEED_EXPORT_ENCODING = 'utf-8'
 
-LOG_LEVEL = 'INFO'
-LOG_FILE = '%(time)s.log'
+LOG_LEVEL = 'DEBUG'
+
+import time
+LOG_FILE = '%s.log' % (time.ctime().replace(':', '_'))
 
 IMAGES_STORE = 'res'
