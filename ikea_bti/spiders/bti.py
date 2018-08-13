@@ -16,8 +16,8 @@ class BtiSpider(SitemapSpider):
         if div:
             div = div[0]
             yield IkeaBtiItem(
-                name=div.xpath('.//div[contains(@class, "productName")]/text()').extract_first().strip(),
-                type=div.xpath('.//div[contains(@class, "productType")]/text()').extract_first().strip(),
+                name=div.xpath('.//span[contains(@class, "productName")]/text()').extract_first().strip(),
+                type=div.xpath('.//span[contains(@class, "productType")]/text()').extract_first().strip(),
                 family_price=''.join(e for e in div.xpath('.//span[contains(@class, "ikeaFamilyPrice")]/text()').extract()).strip().replace(u'\xa0', u' '),
                 package_price=''.join(e for e in div.xpath('.//span[contains(@class, "packagePrice")]/text()').extract()).strip().replace(u'\xa0', u' '),
                 image_urls=[response.urljoin(response.xpath('//img[contains(@id, "productImg")]/@src').extract_first())],
