@@ -1,5 +1,6 @@
 import glob
 import json
+from urllib.parse import urlparse, urlunparse
 
 
 def process():
@@ -20,12 +21,16 @@ def process():
 
     for line in f_in:
         d = json.loads(line, encoding='utf-8')
+
+        # clear query in url in case there are any vertical bar "|" which break markdown table delimiter
+        url = urlunparse(urlparse(d['url'])._replace(query=''))
+
         f_out.write(' | '.join([
             d['name'],
             d['type'],
             d['package_price'],
             d['family_price'],
-            img_with_link % (d['image_urls'][0].split('/')[-1], d['url'])
+            img_with_link % (d['image_urls'][0].split('/')[-1], url)
             ]))
         f_out.write('\n')
 
